@@ -414,7 +414,11 @@ code {
                   background-position: center;
                 }
                 @media screen and (max-width: 1000px) {
-                  min-width: 250px;
+                  min-width: 150px;
+                  font-size: 15px;
+                  &::after {
+                    width: 35px;
+                  }
                 }
                 .cht_encrypt {
                   color: var(--orange);
