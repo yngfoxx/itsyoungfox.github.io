@@ -107,7 +107,7 @@ export default function HomeScreen() {
         }
       }
       skillBar.current = {
-        php    : new ProgressBar.Circle('#skillPHP', options),
+        backend    : new ProgressBar.Circle('#skillbackend', options),
         mysql    : new ProgressBar.Circle('#skillMYSQL', options),
         js     : new ProgressBar.Circle('#skillJS', options),
         html   : new ProgressBar.Circle('#skillHTML', options),
@@ -153,7 +153,11 @@ export default function HomeScreen() {
 
       if (mainSwiper.realIndex !== 0) {
         let tileTitle = document.getElementsByClassName('content_header_title')[(mainSwiper.realIndex - 1)];
-        window.startdecrypt(tileTitle.children[0], tileTitle.children[1])
+        window.startdecrypt(tileTitle.children[0], tileTitle.children[1]);
+      }
+
+      if (mainSwiper.realIndex == 1) {
+        skillSwiper.current.slideTo(2, 700, false);
       }
     },
     onSwiper: (swiperConf) => {
