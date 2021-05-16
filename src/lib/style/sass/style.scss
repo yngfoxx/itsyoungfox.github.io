@@ -649,6 +649,8 @@ code {
                       }
                       &.swiper-slide-active {
                         opacity: 1;
+                        animation: pulse 2s infinite;
+                        animation-delay: 1s;
                       }
                       &::before {
                         content: "";
