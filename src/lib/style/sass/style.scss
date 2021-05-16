@@ -344,6 +344,11 @@ code {
           background-color: var(--light-grey-v2-trans);
           padding: 6px;
           border-radius: 12px;
+          @media screen and (max-width: 800px) {
+            background-color: transparent;
+            top: 24%;
+            right: 0;
+          }
           .swiper-pagination-bullet {
             margin: 12px 0 !important;
             background-color: #ff5220;
@@ -726,7 +731,7 @@ $lrg-tile-width: 432px;
       transform: scale(1.5);
     }
     @media screen and (max-width: 600px){
-      transform: scale(0.8);
+      transform: scale(.95);
     }
     [data-role="tile"] {
       vertical-align: middle;

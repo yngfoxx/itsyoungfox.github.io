@@ -223,10 +223,12 @@ export default function HomeScreen() {
                             <div className="_abt_d_t_r_field _name">City</div>
                             <div className="_abt_d_t_r_field _value">Hatfield</div>
                           </div>
+                          {/*
                           <div className="_abt_d_t_row">
                             <div className="_abt_d_t_r_field _name">Age</div>
                             <div className="_abt_d_t_r_field _value">{ new Date().getFullYear() - 2002 }</div>
                           </div>
+                          */}
                         </div>
                         <div className="_abt_d_socials">
                           <a href="https://github.com/itsYoungFox" target="blank" className="icon-github"> </a>
