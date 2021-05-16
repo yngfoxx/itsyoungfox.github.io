@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.title {
+	background-color: grey;
+	color: white;
+	padding: 20px;
+	margin: 5px;
+  border-radius: 8px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.row {
+	margin: auto 10px;
+	display: flex;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+	width: -moz-available;
+	width: -webkit-fill-available;
+	flex-wrap: wrap;
+	background-color: #151515;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.image {
+	max-width: 200px;
+	border-radius: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.childData {
+	width: max-content;
+	margin: 5px 3px;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cD_name {
+	background-color: grey;
+	color: white;
+	padding: 20px;
+	border-radius: 8px;
+	margin: 6px 0px 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
