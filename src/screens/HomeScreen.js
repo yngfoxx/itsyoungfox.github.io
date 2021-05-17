@@ -33,7 +33,7 @@ export default function HomeScreen() {
   });
 
   const skillSwiper = useRef(null);
-  const skillBar = useRef(null);
+  // const skillBar = useRef(null);
   const skillSliderConfig = {
     effect: 'coverflow',
     centeredSlides: true,
@@ -59,35 +59,11 @@ export default function HomeScreen() {
     parallax: true,
     mousewheel: false,
     onSlideChange: (skillSwiper) => {
-      let skillOBJ = skillBar.current;
-      for (const property in skillOBJ) skillOBJ[property].animate(0.0);
-      let slideTile = document.getElementsByClassName('skill-tile');
-          slideTile = slideTile[skillSwiper.realIndex];
-
-          switch (slideTile.children[0].getAttribute('data-skill')) {
-            case 'backend':
-              skillOBJ['backend'].animate(0.6);
-              break;
-
-            case 'frontend':
-              skillOBJ['frontend'].animate(0.9);
-              break;
-
-            case 'software':
-              skillOBJ['software'].animate(0.84);
-              break;
-
-            case 'creator':
-              skillOBJ['creator'].animate(0.75);
-              break;
-
-            case 'tools':
-              skillOBJ['tools'].animate(0.8);
-              break;
-
-            default:
-              break;
-          }
+      // let skillOBJ = skillBar.current;
+      // let slideTile = document.querySelectorAll('.skill-tile');
+      //     slideTile.forEach((item, i) => { item.style.animation = "none"; });
+      //     slideTile = slideTile[skillSwiper.realIndex];
+      //     slideTile.style.animation = "pulse 2s infinite";
       skillSwiper.update();
     },
     onSwiper: (swiperConf) => {
@@ -156,7 +132,7 @@ export default function HomeScreen() {
         window.startdecrypt(tileTitle.children[0], tileTitle.children[1]);
       }
 
-      if (mainSwiper.realIndex == 1) {
+      if (mainSwiper.realIndex === 1) {
         skillSwiper.current.slideTo(2, 700, false);
       }
     },
@@ -188,7 +164,7 @@ export default function HomeScreen() {
             <div data-pos="top"></div>
             <div data-pos="bottom"></div>
           </div>
-          <a href="#menu" className="nav_bar_btn _menu"><i className="icon-th-list"></i><span> Menu</span></a>
+          <a href="#about" className="nav_bar_btn _menu"><i className="icon-stephen-adebayo" style={{backgroundImage: `url(${logo})`}}></i><span> Stephen Adebayo</span></a>
           <a href="#about" onClick={navHandleClick} className="nav_bar_btn _nav_slider" data-menu="active"><i className="icon-user-circle"></i><span> About</span></a>
           <a href="#stack" onClick={navHandleClick} className="nav_bar_btn _nav_slider"><i className="icon-code"></i><span> Stack</span></a>
           {/*<a href="#certification" onClick={navHandleClick} className="nav_bar_btn _nav_slider"><i className="icon-graduation-cap"></i><span> Certification</span></a>*/}
@@ -198,7 +174,14 @@ export default function HomeScreen() {
 
         <div className="smr_section_main">
           <Swiper {...mainSliderConfig}>
-              <div className="parallax-bg" data-swiper-parallax="-23%" style={{backgroundImage: `url(${bg})`}}/>
+              <div className="parallax-bg" data-swiper-parallax="-23%" style={{backgroundImage: `url(${bg})`}}>
+                <div className="cube"></div>
+                <div className="cube"></div>
+                <div className="cube"></div>
+                <div className="cube"></div>
+                <div className="cube"></div>
+                <div className="cube"></div>
+              </div>
               {/* ABOUT SLIDE */}
               <SwiperSlide>
                 <div className="content">
@@ -357,7 +340,7 @@ export default function HomeScreen() {
                   <div data-swiper-parallax="-600" className="grid-container">
                     <div className="grid-row">
 
-                      <div data-role="tile" data-size="large">
+                      <div data-role="tile" data-size="large" data-swiper-parallax="-200">
                         <div className="tile-child tile-logo">
                           <img src={logo_exodusleague} alt="exodus league" style={{width: "100%"}}/>
                           <div className="tile-mob-descrp">Exodus League - Founder</div>
@@ -375,19 +358,19 @@ export default function HomeScreen() {
                       </div>
 
                       <div data-role="tile-group">
-                        <div data-role="tile" data-size="wide">
+                        <div data-role="tile" data-size="wide" data-swiper-parallax="-450">
                           <div className="tile-child tile-logo">
                             <div className="jds_logo_el">JDS</div>
                             <div className="tile-mob-descrp">Joint Downloading System - Final Year Project</div>
                           </div>
                         </div>
-                        <div data-role="tile" data-size="medium">
+                        <div data-role="tile" data-size="medium" data-swiper-parallax="-500">
                           <div className="tile-child tile-logo">
                             <img src={logo_eadministration} alt="eAdministration"/>
                             <div className="tile-mob-descrp">eAdministration (Aptech) - Final eProject</div>
                           </div>
                         </div>
-                        <div data-role="tile" data-size="medium">
+                        <div data-role="tile" data-size="medium" data-swiper-parallax="-600">
                           <div className="tile-child tile-logo">
                             <img src={logo_yngfox} style={{borderRadius: "10px"}} alt="YNG.FOX"/>
                             <div className="tile-mob-descrp">Digital art - Gallery</div>
@@ -396,25 +379,25 @@ export default function HomeScreen() {
                       </div>
 
                       <div data-role="tile-group">
-                        <div data-role="tile" data-size="medium">
+                        <div data-role="tile" data-size="medium" data-swiper-parallax="-400">
                           <div className="tile-child tile-logo">
                             <img src={logo_foxai} alt="Fox AI"/>
                             <div className="tile-mob-descrp">AI - Fox (cross-platform) Personal Assistant</div>
                           </div>
                         </div>
-                        <div data-role="tile" data-size="medium">
+                        <div data-role="tile" data-size="medium" data-swiper-parallax="-300">
                           <div className="tile-child tile-logo">
                             <img src={logo_nuke} style={{borderRadius: "10px"}} alt="Nuke"/>
                             <div className="tile-mob-descrp">Nuke Inc - Founder</div>
                           </div>
                         </div>
-                        <div data-role="tile" data-size="medium">
+                        <div data-role="tile" data-size="medium" data-swiper-parallax="-600">
                           <div className="tile-child tile-logo">
                             <img src={logo} alt="coming soon"/>
                             <div className="tile-mob-descrp">Coming soon</div>
                           </div>
                         </div>
-                        <div data-role="tile" data-size="medium">
+                        <div data-role="tile" data-size="medium" data-swiper-parallax="-650">
                           <div className="tile-child tile-logo">
                             <img src={logo} alt="coming soon"/>
                             <div className="tile-mob-descrp">Coming soon</div>

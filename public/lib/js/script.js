@@ -137,10 +137,22 @@ function getCookie(cname) {
     Revelation effect (dycryption effect)
 ---------------------------------------------------------------*/
 function startdecrypt(decrypted, encrypted) {
+  // Check if text is complete
+  let getCypherMode = decrypted.getAttribute('data-cypher-mode');
+  let getCypherText = decrypted.getAttribute('data-cypher-text');
+  if (getCypherMode == 1) {
+    return false;
+  } else {
+    // Set cypher mode
+    decrypted.setAttribute('data-cypher-mode', 1);
+    if (getCypherText !== decrypted.textContent) decrypted.setAttribute('data-cypher-text', decrypted.textContent);
+    getCypherText = decrypted.getAttribute('data-cypher-text');
+
     // Original text, split into an array and reversed (for faster pop())
     var originalText = decrypted.textContent.split('').reverse();
     var decryptedText = "";
     var i = 0;
+
 
     decrypted.textContent = "";
 
@@ -159,8 +171,12 @@ function startdecrypt(decrypted, encrypted) {
       encrypted.textContent = shuffledText;
 
       // Stop when done
-      if(!shuffledText.length) clearInterval(shuffleInterval);
+      if(!shuffledText.length) {
+        clearInterval(shuffleInterval);
+        decrypted.setAttribute('data-cypher-mode', 0);
+      }
 
-    // 50ms looks more dramatic
-    },50);
+      // 50ms looks more dramatic
+    }, 20);
+  }
 }
