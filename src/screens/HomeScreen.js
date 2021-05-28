@@ -348,10 +348,10 @@ export default function HomeScreen() {
                         <div className="tile-child tile-descrp">
                           <h3>Exodus League - Founder</h3>
                           <ul>
-                            <li>Coordinated offline and online events</li>
-                            <li>Developed the Exodus League online platform</li>
-                            <li>Managed a team of 15 members</li>
-                            <li>Contributed to the growth of eSports in Africa</li>
+                            <li>Coordinating offline and online events</li>
+                            <li>Web/Software Developer of the Exodus League online platform</li>
+                            <li>Managing a team of 15 members</li>
+                            <li>Contributing to the growth of eSports in Africa</li>
                           </ul>
                           <button className="tile-button">view</button>
                         </div>
