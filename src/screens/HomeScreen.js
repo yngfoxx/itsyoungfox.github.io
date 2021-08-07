@@ -7,6 +7,10 @@ import logo from '../assets/images/original-favicon.png';
 import bg from '../assets/images/bg/mountains.jpg';
 // import bg from '../assets/images/bg/work.jpg';
 
+// Components
+import About from '../components/Home/About';
+import Skills from '../components/Home/Skills';
+
 // Projects
 import logo_exodusleague from '../assets/images/projects/exodusleague_310x310.png';
 import logo_eadministration from '../assets/images/projects/eAdministration_269x290.png';
@@ -15,13 +19,13 @@ import logo_foxai from '../assets/images/projects/fox_logo.png';
 import logo_nuke from '../assets/images/projects/nuke_logo.jpeg';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, EffectFlip, EffectFade, Parallax, Mousewheel, EffectCoverflow } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Scrollbar, EffectCube, Parallax, Mousewheel, EffectCoverflow } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectFlip, EffectFade, Parallax, Mousewheel, EffectCoverflow]);
+SwiperCore.use([Navigation, Pagination, Scrollbar, EffectCube, Parallax, Mousewheel, EffectCoverflow]);
 
 export default function HomeScreen() {
   const [splash, toggle] = useState(false);
@@ -32,78 +36,10 @@ export default function HomeScreen() {
     onRest: () => { toggle(!splash); }
   });
 
-  const skillSwiper = useRef(null);
-  // const skillBar = useRef(null);
-  const skillSliderConfig = {
-    effect: 'coverflow',
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    grabCursor: true,
-    updateOnWindowResize: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: -50,
-      depth: 100,
-      modifier: 5,
-      slideShadows: false,
-    },
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: true,
-      stopOnLastSlide: true
-    },
-    preloadImages: false,
-    watchSlidesProgress: true,
-    speed: 800,
-    direction: 'horizontal',
-    parallax: true,
-    mousewheel: false,
-    onSlideChange: (skillSwiper) => {
-      // let skillOBJ = skillBar.current;
-      // let slideTile = document.querySelectorAll('.skill-tile');
-      //     slideTile.forEach((item, i) => { item.style.animation = "none"; });
-      //     slideTile = slideTile[skillSwiper.realIndex];
-      //     slideTile.style.animation = "pulse 2s infinite";
-      skillSwiper.update();
-    },
-    onSwiper: (swiperConf) => {
-      skillSwiper.current = swiperConf;
-      // let ProgressBar = require('progressbar.js');
-      /*let options = {
-        color: '#ff5220',
-        trailColor: '#0f141ced',
-        trailWidth: 1,
-        strokeWidth: 3,
-        duration: 1400,
-        step: function(state, shape) {
-          // shape.path.setAttribute('stroke', state.color);
-          shape.path.style.strokeLinecap = 'round';
-          let perText = shape.path.parentNode.parentNode.parentNode.parentNode.children[1].children[0].children[1];
-          perText.innerText = (Math.round(shape.value() * 100) + ' %');
-        }
-      }
-      skillBar.current = {
-        backend    : new ProgressBar.Circle('#skillbackend', options),
-        mysql    : new ProgressBar.Circle('#skillMYSQL', options),
-        js     : new ProgressBar.Circle('#skillJS', options),
-        html   : new ProgressBar.Circle('#skillHTML', options),
-        css    : new ProgressBar.Circle('#skillCSS', options),
-        py     : new ProgressBar.Circle('#skillPY', options),
-        react  : new ProgressBar.Circle('#skillREACT', options),
-        c      : new ProgressBar.Circle('#skillC', options),
-        node   : new ProgressBar.Circle('#skillNODE', options),
-        java   : new ProgressBar.Circle('#skillJAVA', options)
-      };
-      let skillOBJ = skillBar.current;
-      for (const property in skillOBJ) skillOBJ[property].animate(0.0);
-      */
-    }
-  };
-
-
 
   const mainSwiper = useRef(null);
   const mainSliderConfig = {
+    effect: "cube",
     preloadImages: false,
     watchSlidesProgress: true,
     speed: 800,
@@ -132,9 +68,9 @@ export default function HomeScreen() {
         window.startdecrypt(tileTitle.children[0], tileTitle.children[1]);
       }
 
-      if (mainSwiper.realIndex === 1) {
-        skillSwiper.current.slideTo(2, 700, false);
-      }
+      // if (mainSwiper.realIndex === 1) {
+      //   skillSwiper.current.slideTo(2, 700, false);
+      // }
     },
     onSwiper: (swiperConf) => {
       mainSwiper.current = swiperConf;
@@ -174,6 +110,7 @@ export default function HomeScreen() {
 
         <div className="smr_section_main">
           <Swiper {...mainSliderConfig}>
+
               <div className="parallax-bg" data-swiper-parallax="-23%" style={{backgroundImage: `url(${bg})`}}>
                 <div className="cube"></div>
                 <div className="cube"></div>
@@ -182,149 +119,15 @@ export default function HomeScreen() {
                 <div className="cube"></div>
                 <div className="cube"></div>
               </div>
+
               {/* ABOUT SLIDE */}
               <SwiperSlide>
-                <div className="content">
-                  <div className="_abt">
-                    <div data-swiper-parallax="-300" className="_abt_profile">
-                      <img src={logo} alt="Profile"/>
-                    </div>
-                    <div data-swiper-parallax="-600" className="_abt__desc">
-                        <div className="_abt_d_name" data-swiper-parallax="-550">
-                          <>
-                            <ReactTypingEffect text={["Stephen Adebayo", "What's up?", "My name is Stephen,", "A Creative...", "full-stack developer!", "graphics designer!", "digital artist!", "and multi-talented!"]} />
-                          </>
-                        </div>
-                        <div className="_abt_d_content">
-                          My name is Stephen Adebayo Osunrinde, I am a full-stack developer, graphics designer and a digital artist with proficient skill level in designing, developing and managing web applications/websites.
-                          I have spent the past { new Date().getFullYear() - 2018 } years honing my skills in web development, game development and software engineering.
-                          <br/><br/>
-                          Still new to the work force, would love to get in touch with you and your team!
-                        </div>
-                        <div className="_abt_d_table">
-                          <div className="_abt_d_t_row">
-                            <div className="_abt_d_t_r_field _name">Residence</div>
-                            <div className="_abt_d_t_r_field _value">United Kingdom</div>
-                          </div>
-                          <div className="_abt_d_t_row">
-                            <div className="_abt_d_t_r_field _name">City</div>
-                            <div className="_abt_d_t_r_field _value">Hatfield</div>
-                          </div>
-                          {/*
-                          <div className="_abt_d_t_row">
-                            <div className="_abt_d_t_r_field _name">Age</div>
-                            <div className="_abt_d_t_r_field _value">{ new Date().getFullYear() - 2002 }</div>
-                          </div>
-                          */}
-                        </div>
-                        <div className="_abt_d_socials">
-                          <a href="https://github.com/itsYoungFox" target="blank" className="icon-github"> </a>
-                          <a href="https://www.instagram.com/yng.fox" target="blank" className="icon-instagram"> </a>
-                          <a href="https://www.linkedin.com/in/stephen-osunrinde-465a2b195" target="blank" className="icon-linkedin"> </a>
-                        </div>
-                    </div>
-                  </div>
-                  <div className="_scrl_indc" data-swiper-parallax="-400">
-                    <div className="icon-down-open-big"></div>
-                  </div>
-                  <div className="bar_01" data-swiper-parallax="-750"></div>
-                  <div className="bar_02" data-swiper-parallax="-700"></div>
-                </div>
+                <About />
               </SwiperSlide>
 
               {/* SKILLS SLIDE */}
               <SwiperSlide>
-                <div className="content">
-                  <div className="content_header_title" data-swiper-parallax="-500">
-                    <div className="cht_decrypt">Stack</div>
-                    <div className="cht_encrypt"></div>
-                  </div>
-                  <div className="_scrl_indc" data-swiper-parallax="-400">
-                    <div className="icon-down-open-big"></div>
-                  </div>
-                  <div data-swiper-parallax="-600" className="skill-slider-container">
-                    <Swiper {...skillSliderConfig}>
-                      <SwiperSlide className="skill-tile">
-                        <div className="skill-descrp">
-                          <h3 className="skill-title">
-                            <span>Back-end stack</span>
-                            <span>compt(%)</span>
-                          </h3>
-                          <div className="skill-list">
-                            <div className="skill-list-item"><span>OOP PHP</span><span>85%</span></div>
-                            <div className="skill-list-item"><span>MySQL</span><span>80%</span></div>
-                            <div className="skill-list-item"><span>Python Flask</span><span>70%</span></div>
-                            <div className="skill-list-item"><span>Node.js</span><span>65%</span></div>
-                            <div className="skill-list-item"><span>Java EE</span><span>40%</span></div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide className="skill-tile">
-                        <div className="skill-descrp">
-                          <h3 className="skill-title">
-                            <span>Front-end stack</span>
-                            <span>compt(%)</span>
-                          </h3>
-                          <div className="skill-list">
-                            <div className="skill-list-item"><span>React.js</span><span>70%</span></div>
-                            <div className="skill-list-item"><span>JavaScript</span><span>80%</span></div>
-                            <div className="skill-list-item"><span>CSS/LESS/SASS</span><span>85%</span></div>
-                            <div className="skill-list-item"><span>jQuery</span><span>60%</span></div>
-                            <div className="skill-list-item"><span>WebRTC</span><span>70%</span></div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide className="skill-tile">
-                        <div className="skill-descrp">
-                          <h3 className="skill-title">
-                            <span>Software dev</span>
-                            <span>compt(%)</span>
-                          </h3>
-                          <div className="skill-list">
-                            <div className="skill-list-item"><span>Python</span><span>75%</span></div>
-                            <div className="skill-list-item"><span>Electron.js</span><span>65%</span></div>
-                            <div className="skill-list-item"><span>Java</span><span>45%</span></div>
-                            <div className="skill-list-item"><span>Android</span><span>45%</span></div>
-                            <div className="skill-list-item"><span>Batch script</span><span>40%</span></div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide className="skill-tile">
-                        <div className="skill-descrp">
-                          <h3 className="skill-title">
-                            <span>Content creation</span>
-                            <span>compt(%)</span>
-                          </h3>
-                          <div className="skill-list">
-                            <div className="skill-list-item"><span>MS Office</span><span>80%</span></div>
-                            <div className="skill-list-item"><span>Graphics design</span><span>85%</span></div>
-                            <div className="skill-list-item"><span>Video editing</span><span>50%</span></div>
-                            <div className="skill-list-item"><span>Blender 3D</span><span>30%</span></div>
-                            <div className="skill-list-item"><span>Digital Art</span><span>70%</span></div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide className="skill-tile">
-                        <div className="skill-descrp">
-                          <h3 className="skill-title">
-                            <span>tools</span>
-                          </h3>
-                          <div className="skill-list">
-                            <div className="skill-list-item"><span>Atom</span><span>Figma</span></div>
-                            <div className="skill-list-item"><span>Kali Linux</span><span>VMware</span></div>
-                            <div className="skill-list-item"><span>Android Studio</span><span>GitHub</span></div>
-                            <div className="skill-list-item"><span>Git</span><span>pip</span></div>
-                            <div className="skill-list-item"><span>Docker</span><span>XAMPP</span></div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    </Swiper>
-                  </div>
-                </div>
+                <Skills />  
               </SwiperSlide>
 
               {/* PROJECTS SLIDE */}
@@ -346,14 +149,14 @@ export default function HomeScreen() {
                           <div className="tile-mob-descrp">Exodus League - Founder</div>
                         </div>
                         <div className="tile-child tile-descrp">
-                          <h3>Exodus League - Founder</h3>
+                          <h3>Exodus League</h3>
                           <ul>
                             <li>Coordinating offline and online events</li>
                             <li>Web/Software Developer of the Exodus League online platform</li>
                             <li>Managing a team of 15 members</li>
                             <li>Contributing to the growth of eSports in Africa</li>
                           </ul>
-                          <button className="tile-button">view</button>
+                          <a href="https://exodusleague.com" className="tile-button">view</a>
                         </div>
                       </div>
 
@@ -388,7 +191,7 @@ export default function HomeScreen() {
                         <div data-role="tile" data-size="medium" data-swiper-parallax="-300">
                           <div className="tile-child tile-logo">
                             <img src={logo_nuke} style={{borderRadius: "10px"}} alt="Nuke"/>
-                            <div className="tile-mob-descrp">Nuke Inc - Founder</div>
+                            <div className="tile-mob-descrp">Nuke Dev - Founder & Technical Lead</div>
                           </div>
                         </div>
                         <div data-role="tile" data-size="medium" data-swiper-parallax="-600">
